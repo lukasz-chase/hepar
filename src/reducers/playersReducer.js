@@ -5,7 +5,7 @@ const initState = {
 const playersReducer = (state = initState, action) => {
   switch (action.type) {
     case "FETCH_PLAYERS":
-      return { ...state };
+      return { ...state, players: action.payload.players };
     default:
       return { ...state };
   }
