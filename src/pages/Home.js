@@ -1,9 +1,11 @@
 import React from "react";
+//component
+import Nav from "../components/Nav";
 
 const Home = () => {
   return (
     <div className="home">
-      <h1>pokedex</h1>
+      <Nav />
     </div>
   );
 };
