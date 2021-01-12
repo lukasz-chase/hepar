@@ -9,11 +9,11 @@ export const loadMeals = () => async (dispatch) => {
   const dinnerData = await axios.get(mealTypeURL("dinner"));
   const supperData = await axios.get(mealTypeURL("supper"));
   dispatch({
-    type: "FETCH_MRALS",
+    type: "FETCH_MEALS",
     payload: {
-      breakfast: breakfastData,
-      dinner: dinnerData,
-      supper: supperData,
+      breakfast: breakfastData.data.results,
+      dinner: dinnerData.data.results,
+      supper: supperData.data.results,
     },
   });
 };

@@ -2,13 +2,11 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: "Yusei Magic", sans-serif;
 }
-.App {
-  background-color: rgba(128, 128, 128, 0.308);
-  display: flex;
-  width: 100%;
-  justify-content: center;
+.Link {
+  text-decoration: none;
 }
-
 @import "./home";
 @import "./nav";
+@import "./card";

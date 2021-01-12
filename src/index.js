@@ -9,6 +9,8 @@ import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 //favicon
 import Favicon from "react-favicon";
+//router
+import { BrowserRouter } from "react-router-dom";
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -18,7 +20,9 @@ ReactDOM.render(
   <React.StrictMode>
     <Favicon url="https://cdn4.iconfinder.com/data/icons/alphabet-3/500/ABC_alphabet_letter_font_graphic_language_text_H-512.png" />
     <Provider store={store}>
-      <App />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")

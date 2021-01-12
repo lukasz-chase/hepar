@@ -1,8 +1,94 @@
 .home {
-  min-height: 90vh;
-  width: 60%;
-  margin-top: 2.4%;
-  margin-bottom: 2.4%;
   display: flex;
-  background-color: lightblue;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  margin-top: -5px;
+}
+.home-component {
+  min-height: 70vh;
+  width: 60%;
+  display: flex;
+  .left-side {
+    width: 30%;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #00b4db; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to right,
+      #0084b079,
+      #00b3db70
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to right,
+      #0084b09c,
+      #00b3db79
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    ul {
+      li {
+        padding: 2rem 0rem;
+        list-style: none;
+        letter-spacing: 2px;
+        &:hover {
+          text-decoration: underline;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  .right-side {
+    background-color: #60b5ff67;
+    width: 70%;
+    .info {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .text {
+      padding: 0rem 2rem;
+      font-size: 1.5rem;
+      letter-spacing: 2px;
+      span {
+        color: #5f45de;
+      }
+    }
+    .image {
+      height: 50%;
+      img {
+        height: 30vh;
+        width: 30vh;
+        padding: 1rem;
+        border-radius: 5vh;
+      }
+    }
+    .cards {
+      width: 100%;
+      height: 50%;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      .card {
+        height: 10rem;
+        width: 10rem;
+        font-size: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+
+        border-radius: 1rem;
+        box-shadow: 2px 2px 2px #5f45de;
+        transition: 0.3s ease-in all;
+        color: black;
+        &:hover {
+          background-color: #5f45de70;
+          cursor: pointer;
+        }
+      }
+    }
+  }
 }

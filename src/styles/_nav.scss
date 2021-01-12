@@ -2,16 +2,32 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  flex-direction: row;
   width: 100%;
   height: 6vh;
+  margin-top: 7%;
+}
+.nav-component {
+  display: flex;
+  width: 60%;
+  background-color: #457ddea1;
   .logo {
     padding: 0rem 2rem;
   }
-  .nav-flex {
+
+  .searchBar {
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
+    input {
+      padding: 0rem 1rem;
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      background-color: #dcdbe22a;
+      transition: 0.5s ease-in all;
+      &:focus {
+        outline: none;
+        background-color: white;
+      }
+    }
   }
 }

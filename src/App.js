@@ -1,17 +1,33 @@
-import React, { useEffect } from "react";
+import React from "react";
+//styles
 import "./styles/app.scss";
+//pages
 import Home from "./pages/Home";
-import { useDispatch } from "react-redux";
-import { loadMeals } from "./actions/mealsAction";
+import BreakfastPage from "./pages/BreakfastPage";
+import DinnerPage from "./pages/DinnerPage";
+import SupperPage from "./pages/SupperPage";
+//component
+import Nav from "./components/Nav";
+
+//router
+import { Route } from "react-router-dom";
 
 function App() {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(loadMeals());
-  });
   return (
     <div className="App">
-      <Home />
+      <Nav />
+      <Route path="/" exact>
+        <Home />
+      </Route>
+      <Route path="/breakfast" exact>
+        <BreakfastPage />
+      </Route>
+      <Route path="/dinner" exact>
+        <DinnerPage />
+      </Route>
+      <Route path="/supper" exact>
+        <SupperPage />
+      </Route>
     </div>
   );
 }

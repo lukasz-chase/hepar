@@ -4,7 +4,7 @@ const initState = {
   supper: [],
 };
 
-const playersReducer = (state = initState, action) => {
+const mealsReducer = (state = initState, action) => {
   switch (action.type) {
     case "FETCH_MEALS":
       return {
@@ -18,4 +18,4 @@ const playersReducer = (state = initState, action) => {
   }
 };
 
-export default playersReducer;
+export default mealsReducer;
