@@ -2,12 +2,12 @@ import React, { useEffect } from "react";
 import "./styles/app.scss";
 import Home from "./pages/Home";
 import { useDispatch } from "react-redux";
-import { loadPlayers } from "./actions/playersAction";
+import { loadMeals } from "./actions/mealsAction";
 
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(loadPlayers());
+    dispatch(loadMeals());
   });
   return (
     <div className="App">

@@ -1,6 +1,4 @@
-export const playersURL = () => "https://www.balldontlie.io/api/v1/players";
-export const specificPlayerURL = (id) =>
-  `https://www.balldontlie.io/api/v1/players/${id}`;
-export const teamsURL = () => "https://www.balldontlie.io/api/v1/teams";
-export const specificTeamsURL = (id) =>
-  `https://www.balldontlie.io/api/v1/teams/${id}`;
+const apiKey = "?apiKey=f91e93a03c524f8a94b35fd483426a86";
+
+const mainURL = `https://api.spoonacular.com/recipes/complexSearch${apiKey}`;
+export const mealTypeURL = (type) => `${mainURL}&type=${type}`;
