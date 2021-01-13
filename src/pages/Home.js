@@ -29,7 +29,7 @@ const Home = () => {
           </div>
           <div className="cards">
             <Link to="/breakfast" className="Link">
-              <div className="card">
+              <div className="card-meal">
                 <svg
                   width="24"
                   height="24"
@@ -43,7 +43,7 @@ const Home = () => {
               </div>
             </Link>
             <Link to="/dinner" className="Link">
-              <div className="card">
+              <div className="card-meal">
                 <svg
                   width="24"
                   height="24"
@@ -57,7 +57,7 @@ const Home = () => {
               </div>
             </Link>
             <Link to="/supper" className="Link">
-              <div className="card">
+              <div className="card-meal">
                 <svg
                   width="24"
                   height="24"

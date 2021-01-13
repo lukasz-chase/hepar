@@ -1,17 +1,26 @@
 .card {
-  height: 30vh;
-  width: 15vh;
+  min-height: 40vh;
+  width: 27vh;
   display: flex;
   flex-direction: column;
+  box-shadow: 2px 2px 2px #5f45de;
+  margin: 1rem;
+  border-radius: 1rem;
+  background-color: white;
+  transition: 0.3s ease-in all;
+  &:hover {
+    background-color: #5f45de70;
+    cursor: pointer;
+  }
   .card-image {
-    height: 60%;
-    width: 100%;
+    img {
+      height: 30vh;
+      width: 27vh;
+      object-fit: cover;
+    }
   }
   .card-info {
-    height: 40%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
+    font-size: 1.5rem;
   }
 }

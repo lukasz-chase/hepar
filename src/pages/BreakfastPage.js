@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
+//components
+import MealPage from "../components/mealPage";
 //redux
 import { useDispatch, useSelector } from "react-redux";
 import { loadMeals } from "../actions/mealsAction";
-//components
-import Card from "../components/Card";
 
 const BreakfastPage = () => {
   //fetch data
@@ -13,14 +13,9 @@ const BreakfastPage = () => {
   }, [dispatch]);
   //get data back
   const { breakfast } = useSelector((state) => state.meals);
-  console.log(breakfast);
   return (
     <div className="breakfast">
-      <div className="breakfast-container">
-        {breakfast.map((meal) => (
-          <Card key={meal.id} />
-        ))}
-      </div>
+      <MealPage meal={breakfast} title={"Breakfast recipes"} />
     </div>
   );
 };

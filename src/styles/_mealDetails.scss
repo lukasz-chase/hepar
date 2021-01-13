@@ -1,0 +1,71 @@
+.mealDetails {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  margin-top: -5px;
+}
+.mealDetails-container {
+  min-height: 70vh;
+  width: 60%;
+  font-size: 1.5rem;
+  h1 {
+    text-align: center;
+    padding: 1rem 0rem;
+    font-size: 2rem;
+  }
+  .meal-image {
+    img {
+      height: 40vh;
+      width: 60vh;
+      object-fit: cover;
+    }
+  }
+  .steps {
+    padding: 2rem 1rem;
+
+    h3 {
+      padding: 1rem 0rem;
+
+      p {
+        font-weight: lighter;
+        color: #6f94e3;
+        text-decoration: underline;
+      }
+    }
+  }
+  .ingredients {
+    padding: 0rem 1rem;
+    .ingredient {
+      padding: 1rem 0rem;
+      font-size: 2rem;
+      color: #8062e3;
+      input {
+        -ms-transform: scale(2); /* IE */
+        -moz-transform: scale(2); /* FF */
+        -webkit-transform: scale(2); /* Safari and Chrome */
+        -o-transform: scale(2); /* Opera */
+        transform: scale(2);
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+.mainDetails {
+  .smallDetails {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0rem 1rem;
+  }
+  display: flex;
+  span {
+    font-weight: bold;
+    color: black;
+  }
+  p {
+    color: #7c83fd;
+  }
+}

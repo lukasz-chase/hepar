@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import BreakfastPage from "./pages/BreakfastPage";
 import DinnerPage from "./pages/DinnerPage";
 import SupperPage from "./pages/SupperPage";
+import MealDetails from "./pages/MealDetails";
 //component
 import Nav from "./components/Nav";
 
@@ -24,6 +25,9 @@ function App() {
       </Route>
       <Route path="/dinner" exact>
         <DinnerPage />
+      </Route>
+      <Route path="/recipe/:id" exact>
+        <MealDetails />
       </Route>
       <Route path="/supper" exact>
         <SupperPage />

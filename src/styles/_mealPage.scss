@@ -1,0 +1,13 @@
+.mealPage {
+  min-height: 70vh;
+  width: 60%;
+  background-color: #60b5ff67;
+  h1 {
+    padding: 0rem 1rem;
+  }
+}
+.mealPage-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
