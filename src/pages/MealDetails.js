@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 //redux
 import { useDispatch, useSelector } from "react-redux";
 import { loadRecipe } from "../actions/recipeAction";
+import Ingredient from "../components/Ingredient";
 
 const MealDetails = () => {
   //get the current location
@@ -61,24 +62,24 @@ const MealDetails = () => {
 
                 <p>
                   <span>Diets:</span>
-                  {recipe.diets.map((diet) => (
-                    <span
-                      style={{ color: "#7c83fd", fontWeight: "normal" }}
-                      key={diet}
-                    >
-                      {diet},
-                    </span>
-                  ))}
+                  {recipe.diets
+                    .map((diet) => (
+                      <span
+                        style={{ color: "#7c83fd", fontWeight: "normal" }}
+                        key={diet}
+                      >
+                        {diet}
+                      </span>
+                    ))
+                    // read more https://stackoverflow.com/a/40788571
+                    .reduce((previous, current) => [previous, ", ", current])}
                 </p>
               </div>
             </div>
             <div className="ingredients">
               <h2>Ingredients</h2>
-              {recipe.extendedIngredients.map((ingredient, index) => (
-                <div className="ingredient" key={ingredient.name}>
-                  <input type="checkbox" className="check" />{" "}
-                  <span className={`item${index}`}>{ingredient.name}</span>
-                </div>
+              {recipe.extendedIngredients.map((ingredient) => (
+                <Ingredient ingredient={ingredient} />
               ))}
             </div>
             <div className="steps">
