@@ -7,6 +7,7 @@ import BreakfastPage from "./pages/BreakfastPage";
 import DinnerPage from "./pages/DinnerPage";
 import SupperPage from "./pages/SupperPage";
 import MealDetails from "./pages/MealDetails";
+import SearchedPage from "./pages/SearchedPage";
 //component
 import Nav from "./components/Nav";
 
@@ -31,6 +32,9 @@ function App() {
       </Route>
       <Route path="/supper" exact>
         <SupperPage />
+      </Route>
+      <Route path="/search" exact>
+        <SearchedPage />
       </Route>
     </div>
   );

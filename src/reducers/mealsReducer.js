@@ -2,6 +2,7 @@ const initState = {
   breakfast: [],
   dinner: [],
   supper: [],
+  searched: [],
 };
 
 const mealsReducer = (state = initState, action) => {
@@ -12,6 +13,11 @@ const mealsReducer = (state = initState, action) => {
         breakfast: action.payload.breakfast,
         dinner: action.payload.dinner,
         supper: action.payload.supper,
+      };
+    case "FETCH_SEARCHED":
+      return {
+        ...state,
+        searched: action.payload.searched,
       };
     default:
       return { ...state };

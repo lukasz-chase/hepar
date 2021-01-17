@@ -21,7 +21,6 @@ const MealDetails = () => {
   }, [dispatch, pathId]);
   //get data back
   const { recipe, isLoading } = useSelector((state) => state.recipe);
-  console.log(recipe);
   //ref
   const fullNutrition = useRef(null);
   //handlers

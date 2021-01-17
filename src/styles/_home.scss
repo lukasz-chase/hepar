@@ -15,17 +15,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #00b4db; /* fallback for old browsers */
-    background: -webkit-linear-gradient(
-      to right,
-      #0084b079,
-      #00b3db70
-    ); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(
-      to right,
-      #0084b09c,
-      #00b3db79
-    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right top, #65dfc9, #6cdbeb);
 
     ul {
       li {
@@ -83,6 +73,11 @@
         box-shadow: 2px 2px 2px #5f45de;
         transition: 0.3s ease-in all;
         color: black;
+        background: linear-gradient(
+          to left top,
+          rgba(255, 255, 255, 0.5),
+          rgba(255, 255, 255, 0.9)
+        );
         &:hover {
           background-color: #5f45de70;
           cursor: pointer;

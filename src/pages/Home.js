@@ -9,7 +9,6 @@ const Home = () => {
         <div className="left-side">
           <ul>
             <li>Recipes</li>
-            <li>Ingredients</li>
             <li>Products</li>
             <li>Menu Items</li>
           </ul>
