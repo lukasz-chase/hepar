@@ -60,10 +60,24 @@
     font-weight: bold;
     color: black;
   }
-  p {
-    color: #7c83fd;
+}
+
+.item-checked {
+  text-decoration: line-through;
+}
+.step-click {
+  &:hover {
+    cursor: pointer;
   }
 }
+
+.step-done {
+  color: gray;
+}
+.step-not-done {
+  color: #7c83fd;
+}
+
 .nutrition {
   padding: 1rem 0rem;
   span {
@@ -76,6 +90,7 @@
     }
   }
 }
+
 .full-nutrition {
   width: 100%;
   height: 100%;
@@ -90,19 +105,18 @@
   align-items: center;
   display: none;
   .items {
+    min-height: 70vh;
+    margin-top: 3rem;
     background-color: white;
-    height: fit-content;
-    width: fit-content;
     display: flex;
     flex-direction: column;
-
     .one-item {
       font-size: 1rem;
       border-bottom: 1px solid #7c82fd8c;
     }
+    @media screen and (max-height: 700px) {
+      font-size: 0.7rem;
+      margin-top: 25rem;
+    }
   }
-}
-
-.item-checked {
-  text-decoration: line-through;
 }

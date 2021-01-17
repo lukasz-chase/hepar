@@ -3,8 +3,11 @@ import React, { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 //redux
 import { useDispatch, useSelector } from "react-redux";
+//action
 import { loadRecipe } from "../actions/recipeAction";
+//components
 import Ingredient from "../components/Ingredient";
+import Step from "../components/step";
 
 const MealDetails = () => {
   //get the current location
@@ -71,31 +74,20 @@ const MealDetails = () => {
                         {diet}
                       </span>
                     ))
-                    // read more https://stackoverflow.com/a/40788571
-                    .reduce((previous, current) => [previous, ", ", current])}
+                    .reduce((prev, curr) => [prev, ", ", curr])}
                 </p>
               </div>
             </div>
             <div className="ingredients">
               <h2>Ingredients</h2>
               {recipe.extendedIngredients.map((ingredient) => (
-                <Ingredient ingredient={ingredient} />
+                <Ingredient ingredient={ingredient} key={ingredient.name} />
               ))}
             </div>
             <div className="steps">
               <h2>Directions</h2>
               {recipe.analyzedInstructions[0].steps.map((step) => (
-                <h3 key={step.number}>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" />
-                  </svg>{" "}
-                  Step {step.number} <p>{step.step}</p>
-                </h3>
+                <Step key={step.number} step={step} />
               ))}
             </div>
             <div className="nutrition">
