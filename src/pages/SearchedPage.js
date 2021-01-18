@@ -20,21 +20,19 @@ const SearchedPage = () => {
           <div className="searched-component">
             {searched.map((type) => (
               <div className="searched-item" key={type.name}>
-                <h1>{type.name}</h1>
-                {type.results.length ? (
-                  <>
-                    {type.results.map((item) => (
-                      <div className="items">
-                        <Card
-                          key={item.id}
-                          id={item.id}
-                          title={item.name}
-                          img={item.image}
-                          link={item.link}
-                        />
-                      </div>
+                <h1>{type.name !== "Simple Foods" ? type.name : ""}</h1>
+                {type.results.length && type.name !== "Simple Foods" ? (
+                  <div className="items-type">
+                    {type.results.map((item, index) => (
+                      <Card
+                        key={item.content}
+                        id={item.id}
+                        title={item.name}
+                        img={item.image}
+                        link={item.link}
+                      />
                     ))}
-                  </>
+                  </div>
                 ) : (
                   " not found"
                 )}

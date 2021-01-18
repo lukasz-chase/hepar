@@ -16,7 +16,7 @@ const Card = ({ id, title, img, link }) => {
           </div>
         </Link>
       ) : (
-        <a target="_blank" href={link} className="card-link">
+        <a target="_blank" href={link} rel="noreferrer" className="card-link">
           {title}
         </a>
       )}
