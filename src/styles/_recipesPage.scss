@@ -1,11 +1,11 @@
-.searched {
+.recipesPage {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   width: 100%;
   margin-top: -5px;
 }
-.searched-component {
+.recipesPage-component {
   min-height: 70vh;
   width: 60%;
   background-color: #60b5ff67;
@@ -13,7 +13,7 @@
   flex-wrap: wrap;
   flex-direction: column;
 }
-.items-type {
+.recipesPage-items {
   display: flex;
   flex-wrap: wrap;
 }

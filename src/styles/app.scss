@@ -6,6 +6,7 @@
 }
 .Link {
   text-decoration: none;
+  color: black;
 }
 @import "./home";
 @import "./nav";
@@ -14,3 +15,4 @@
 @import "./mealPage";
 @import "./mealDetails";
 @import "./searched";
+@import "./recipesPage";

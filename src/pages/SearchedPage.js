@@ -23,7 +23,7 @@ const SearchedPage = () => {
                 <h1>{type.name !== "Simple Foods" ? type.name : ""}</h1>
                 {type.results.length && type.name !== "Simple Foods" ? (
                   <div className="items-type">
-                    {type.results.map((item, index) => (
+                    {type.results.map((item) => (
                       <Card
                         key={item.content}
                         id={item.id}

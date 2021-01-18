@@ -8,7 +8,11 @@ const Home = () => {
       <div className="home-component">
         <div className="left-side">
           <ul>
-            <li>Recipes</li>
+            <li>
+              <Link to="/recipes" className="Link">
+                Recipes
+              </Link>
+            </li>
             <li>Products</li>
             <li>Menu Items</li>
           </ul>

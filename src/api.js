@@ -6,3 +6,5 @@ export const recipeURL = (id) =>
   `https://api.spoonacular.com/recipes/${id}/information${apiKey}&includeNutrition=true`;
 export const searchURL = (item) =>
   `https://api.spoonacular.com/food/search${apiKey}&query=${item}&number=10`;
+export const recipesURL = (item, diet, number) =>
+  `${mainURL}&sort=${item}&diet=${diet}&number=${number}`;
