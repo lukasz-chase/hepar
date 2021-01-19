@@ -13,6 +13,21 @@
   flex-wrap: wrap;
   flex-direction: column;
 }
+.results-amount {
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+.searchedPage-header {
+  padding: 0rem 1rem;
+  select {
+    margin: 0rem 1rem;
+  }
+}
+.searched-item {
+  h1 {
+    padding: 0rem 1rem;
+  }
+}
 .items-type {
   display: flex;
   flex-wrap: wrap;

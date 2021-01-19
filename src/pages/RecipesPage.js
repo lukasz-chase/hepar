@@ -18,7 +18,6 @@ const RecipesPage = () => {
   }, [dispatch, sort, number, diet]);
   //get data back
   const { recipes } = useSelector((state) => state.recipes);
-  console.log(recipes);
   //ref
   const sortSelect = useRef(null);
   const dietSelect = useRef(null);
@@ -78,7 +77,6 @@ const RecipesPage = () => {
           className="number-of-results"
           onClick={() => {
             setNumber(number + 10);
-            console.log(number);
           }}
         >
           View More
