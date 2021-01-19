@@ -1,5 +1,6 @@
 const initState = {
   recipe: [],
+  similarRecipes: [],
   isLoading: true,
 };
 
@@ -9,6 +10,7 @@ const recipeReducer = (state = initState, action) => {
       return {
         ...state,
         recipe: action.payload.recipe,
+        similar: action.payload.similar,
         isLoading: false,
       };
     case "LOADING_DETAIL":

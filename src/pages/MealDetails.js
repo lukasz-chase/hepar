@@ -8,6 +8,7 @@ import { loadRecipe } from "../actions/recipeAction";
 //components
 import Ingredient from "../components/Ingredient";
 import Step from "../components/step";
+import Card from "../components/Card";
 
 const MealDetails = () => {
   //get the current location
@@ -20,7 +21,8 @@ const MealDetails = () => {
     dispatch(loadRecipe(pathId));
   }, [dispatch, pathId]);
   //get data back
-  const { recipe, isLoading } = useSelector((state) => state.recipe);
+  const { recipe, isLoading, similar } = useSelector((state) => state.recipe);
+  console.log(recipe);
   //ref
   const fullNutrition = useRef(null);
   //handlers
@@ -63,24 +65,35 @@ const MealDetails = () => {
                 </p>
 
                 <p>
-                  <span>Diets:</span>
-                  {recipe.diets
-                    .map((diet) => (
-                      <span
-                        style={{ color: "#7c83fd", fontWeight: "normal" }}
-                        key={diet}
-                      >
-                        {diet}
-                      </span>
-                    ))
-                    .reduce((prev, curr) => [prev, ", ", curr])}
+                  {recipe.diets.length ? (
+                    <>
+                      <span>Diets:</span>
+                      {recipe.diets
+                        .map((diet) => (
+                          <span
+                            style={{ color: "#7c83fd", fontWeight: "normal" }}
+                            key={diet}
+                          >
+                            {diet}
+                          </span>
+                        ))
+                        .reduce((prev, curr) => [prev, ", ", curr])}
+                    </>
+                  ) : (
+                    ""
+                  )}
                 </p>
               </div>
             </div>
             <div className="ingredients">
               <h2>Ingredients</h2>
-              {recipe.extendedIngredients.map((ingredient) => (
-                <Ingredient ingredient={ingredient} key={ingredient.name} />
+              {recipe.extendedIngredients.map((ingredient, index) => (
+                <Ingredient
+                  ingredient={ingredient}
+                  key={index + ingredient.name}
+                  amount={ingredient.measures.metric.amount}
+                  unit={ingredient.measures.metric.unitShort}
+                />
               ))}
             </div>
             <div className="steps">
@@ -123,6 +136,17 @@ const MealDetails = () => {
                   </span>
                 ))}
               </div>
+            </div>
+            <h2 className="similar-header">Similar Recipes</h2>
+            <div className="mealDetails-similar">
+              {similar.map((recipe) => (
+                <Card
+                  key={recipe.id}
+                  id={recipe.id}
+                  title={recipe.title}
+                  link={recipe.sourceUrl}
+                />
+              ))}
             </div>
           </div>
         </div>

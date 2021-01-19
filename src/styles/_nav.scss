@@ -14,15 +14,16 @@
 
   .logo {
     padding: 0rem 2rem;
+    flex: 1;
   }
 
   .searchBar {
-    width: 100%;
     display: flex;
+    flex: 10;
     justify-content: center;
     position: relative;
-    input {
-      padding: 0rem 1rem;
+    .nav-input {
+      max-width: 35vh;
       font-size: 1.5rem;
       text-transform: uppercase;
       background-color: #dcdbe22a;
@@ -34,6 +35,10 @@
       }
       &:hover {
         cursor: pointer;
+      }
+      @media screen and (max-width: 740px) {
+        width: 15vh;
+        font-size: 1rem;
       }
     }
     button {

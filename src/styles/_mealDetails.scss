@@ -62,10 +62,16 @@
     font-weight: bold;
     color: black;
   }
+  p {
+    color: #8062e3;
+  }
 }
 
 .item-checked {
   text-decoration: line-through;
+}
+.ingredients-amount {
+  color: black;
 }
 .step-click {
   &:hover {
@@ -108,7 +114,7 @@
   display: none;
   .items {
     min-height: 70vh;
-    margin-top: 3rem;
+    margin: 3rem 0rem;
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -121,4 +127,11 @@
       margin-top: 25rem;
     }
   }
+}
+.similar-header {
+  padding: 2rem 0rem;
+}
+.mealDetails-similar {
+  display: flex;
+  flex-wrap: wrap;
 }

@@ -32,6 +32,7 @@ const Nav = () => {
         </div>
         <form className="searchBar">
           <input
+            className="nav-input"
             value={textInput}
             onChange={inputHandler}
             type="text"

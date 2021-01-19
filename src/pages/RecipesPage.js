@@ -9,7 +9,7 @@ import Card from "../components/Card";
 const RecipesPage = () => {
   //state
   const [sort, setSort] = useState("popularity");
-  const [number, setNumber] = useState("10");
+  const [number, setNumber] = useState(10);
   const [diet, setDiet] = useState("");
   const dispatch = useDispatch();
   //useEffect
@@ -21,16 +21,10 @@ const RecipesPage = () => {
   console.log(recipes);
   //ref
   const sortSelect = useRef(null);
-  const numberSelect = useRef(null);
   const dietSelect = useRef(null);
   //handlers
   const sortHandler = () => {
     setSort(sortSelect.current.options[sortSelect.current.selectedIndex].value);
-  };
-  const numberHandler = () => {
-    setNumber(
-      numberSelect.current.options[numberSelect.current.selectedIndex].value
-    );
   };
   const dietHandler = () => {
     setDiet(dietSelect.current.options[dietSelect.current.selectedIndex].value);
@@ -55,23 +49,9 @@ const RecipesPage = () => {
             </select>
           </div>
           <div className="recipesPage-header-sort">
-            <span>Number of results</span>
-            <select name="" id="" ref={numberSelect} onChange={numberHandler}>
-              <option value="10">10</option>
-              <option value="20">20</option>
-              <option value="30">30</option>
-              <option value="40">40</option>
-              <option value="50">50</option>
-              <option value="60">60</option>
-              <option value="70">70</option>
-              <option value="80">80</option>
-              <option value="90">90</option>
-              <option value="100">100</option>
-            </select>
-          </div>
-          <div className="recipesPage-header-sort">
             <span>Sort by diets</span>
             <select name="" id="" ref={dietSelect} onChange={dietHandler}>
+              <option value="">choose diet</option>
               <option value="Gluten Free">Gluten Free</option>
               <option value="Ketogenic">Ketogenic</option>
               <option value="Vegetarian">Vegetarian</option>
@@ -93,6 +73,15 @@ const RecipesPage = () => {
               img={recipe.image}
             />
           ))}
+        </div>
+        <div
+          className="number-of-results"
+          onClick={() => {
+            setNumber(number + 10);
+            console.log(number);
+          }}
+        >
+          View More
         </div>
       </div>
     </div>

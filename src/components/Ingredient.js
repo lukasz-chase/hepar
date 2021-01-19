@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Ingredient = ({ ingredient }) => {
+const Ingredient = ({ ingredient, amount, unit }) => {
   const [checked, setChecked] = useState(false);
 
   return (
@@ -14,6 +14,10 @@ const Ingredient = ({ ingredient }) => {
           }}
         />{" "}
         <span className={checked ? "item-checked" : "item-not-checked"}>
+          <span className="ingredients-amount">
+            {Math.round(amount)}
+            {unit}{" "}
+          </span>{" "}
           {ingredient.name}
         </span>
       </div>
