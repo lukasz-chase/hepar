@@ -18,7 +18,11 @@ const Home = () => {
                 Food jokes
               </Link>
             </li>
-            <li>Menu Items</li>
+            <li>
+              <Link to="/answer" className="Link">
+                Quick answer
+              </Link>
+            </li>
           </ul>
         </div>
         <div className="right-side">

@@ -1,0 +1,18 @@
+.answerPage {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  margin-top: -5px;
+}
+.answerPage-component {
+  min-height: 60vh;
+  width: 60%;
+  background-color: #60b5ff67;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
