@@ -1,0 +1,39 @@
+.jokePage {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  margin-top: -5px;
+}
+.jokePage-component {
+  min-height: 40vh;
+  width: 60%;
+  background-color: #60b5ff67;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin-bottom: 2rem;
+  h1 {
+    text-align: center;
+    padding: 2rem 0rem;
+    font-size: 2rem;
+    color: white;
+  }
+  .another-joke {
+    padding: 0.5rem;
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    border: 1px solid #211fde;
+    background-color: #672ff586;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  .joke {
+    font-size: 1.5rem;
+    text-align: center;
+    color: black;
+  }
+}

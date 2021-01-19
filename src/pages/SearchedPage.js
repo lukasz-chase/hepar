@@ -23,7 +23,7 @@ const SearchedPage = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchSearch(searched.query, number));
-  }, [dispatch, number]);
+  }, [dispatch, number, searched.query]);
 
   return (
     <>

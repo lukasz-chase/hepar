@@ -9,6 +9,7 @@ import SupperPage from "./pages/SupperPage";
 import MealDetails from "./pages/MealDetails";
 import SearchedPage from "./pages/SearchedPage";
 import RecipesPage from "./pages/RecipesPage";
+import JokePage from "./pages/JokePage";
 //component
 import Nav from "./components/Nav";
 
@@ -39,6 +40,9 @@ function App() {
       </Route>
       <Route path="/recipes" exact>
         <RecipesPage />
+      </Route>
+      <Route path="/joke" exact>
+        <JokePage />
       </Route>
     </div>
   );

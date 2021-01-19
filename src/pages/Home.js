@@ -13,7 +13,11 @@ const Home = () => {
                 Recipes
               </Link>
             </li>
-            <li>Products</li>
+            <li>
+              <Link to="/joke" className="Link">
+                Food jokes
+              </Link>
+            </li>
             <li>Menu Items</li>
           </ul>
         </div>
