@@ -18,10 +18,14 @@
     cursor: pointer;
   }
   .card-image {
+    overflow: hidden;
     img {
       height: 30vh;
       width: 27vh;
       object-fit: cover;
+      &:hover {
+        transform: scale(1.2);
+      }
       @media screen and (max-width: 650px) {
         width: 24vh;
         height: 20vh;

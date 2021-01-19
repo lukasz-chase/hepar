@@ -6,7 +6,7 @@
   margin-top: -5px;
 }
 .answerPage-component {
-  min-height: 60vh;
+  min-height: 40vh;
   width: 60%;
   background-color: #60b5ff67;
   display: flex;
@@ -15,4 +15,18 @@
   flex-wrap: wrap;
   flex-direction: column;
   margin-bottom: 2rem;
+  font-size: 1.5rem;
+}
+.answerPage-header {
+  display: flex;
+  input {
+    font-size: 1.5rem;
+  }
+  button {
+    font-size: 1.5rem;
+    background-color: #a994f57e;
+    &:hover {
+      cursor: pointer;
+    }
+  }
 }

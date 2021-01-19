@@ -18,23 +18,25 @@ const QuickAnswerPage = () => {
   const textHandler = (e) => {
     setText(e.target.value);
   };
-  const submitQuestion = (e) => {
-    e.preventDefault();
-    dispatch(loadAnswer(text));
-  };
+  //   const submitQuestion = (e) => {
+  //     e.preventDefault();
+  //     dispatch(loadAnswer(text));
+  //   };
   return (
     <div className="answerPage">
       <div className="answerPage-component">
         <div className="answerPage-header">
-          <form>
-            <input
-              type="text"
-              placeholder="question"
-              value={text}
-              onChange={textHandler}
-            />
-            <button type="submit" onClick={submitQuestion}></button>
-          </form>
+          {/* <form> */}
+          <input
+            type="text"
+            placeholder="question"
+            value={text}
+            onChange={textHandler}
+          />
+          {/* <button type="submit" onClick={submitQuestion}>
+              submit
+            </button>
+          </form> */}
         </div>
       </div>
     </div>

@@ -19,6 +19,11 @@ const Home = () => {
               </Link>
             </li>
             <li>
+              <Link to="/trivia" className="Link">
+                Food trivia
+              </Link>
+            </li>
+            <li>
               <Link to="/answer" className="Link">
                 Quick answer
               </Link>

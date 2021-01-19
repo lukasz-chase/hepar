@@ -11,8 +11,10 @@ import SearchedPage from "./pages/SearchedPage";
 import RecipesPage from "./pages/RecipesPage";
 import JokePage from "./pages/JokePage";
 import QuickAnswerPage from "./pages/QuickAnswerPage";
+import TriviaPage from "./pages/TriviaPage";
 //component
 import Nav from "./components/Nav";
+import ChatBot from "./components/chatBot";
 
 //router
 import { Route } from "react-router-dom";
@@ -48,6 +50,10 @@ function App() {
       <Route path="/answer" exact>
         <QuickAnswerPage />
       </Route>
+      <Route path="/trivia" exact>
+        <TriviaPage />
+      </Route>
+      <ChatBot />
     </div>
   );
 }

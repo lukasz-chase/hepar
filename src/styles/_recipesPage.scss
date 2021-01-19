@@ -17,10 +17,16 @@
 .recipesPage-header {
   padding: 0rem 2rem;
 }
+.recipesPage-sorting-component {
+  display: flex;
+  flex-wrap: wrap;
+}
 .recipesPage-header-sort {
   display: flex;
+
   flex-direction: column;
   font-size: 1.5rem;
+  padding-right: 1rem;
   select {
     font-size: 1rem;
     &:hover {

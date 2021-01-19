@@ -15,7 +15,7 @@ const DinnerPage = () => {
   const { dinner } = useSelector((state) => state.meals);
   return (
     <div className="breakfast">
-      <MealPage meal={dinner} title={"Dinner ideas"} />
+      <MealPage meal={dinner} title={"Dinner recipes"} />
     </div>
   );
 };
