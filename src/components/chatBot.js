@@ -1,4 +1,6 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { loadChatBot } from "../actions/chatBotAction";
 
 const ChatBot = () => {
   const [open, setOpen] = useState(false);
@@ -7,9 +9,14 @@ const ChatBot = () => {
     {
       who: "ChatBot",
       message:
-        "sample questions: covert something with 2 cups of butter in grams | find food substitutes by saying - what is substitute for flour",
+        "sample questions: convert something with 2 cups of butter in grams | find food substitutes by saying - what is substitute for flour",
     },
   ]);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(loadChatBot(text));
+  }, [dispatch, messages, text]);
+  const { chatBot } = useSelector((state) => state.chatBot);
   //ref
   //second option
   const windowChat = useRef(null);
@@ -19,13 +26,6 @@ const ChatBot = () => {
   const inputHandler = (e) => {
     setText(e.target.value);
   };
-  //second option
-  const scrollToBottom = () => {
-    const scrollHeight = windowChat.current.scrollHeight;
-    const height = windowChat.current.clientHeight;
-    const maxScrollTop = scrollHeight - height;
-    windowChat.current.scrollTop = maxScrollTop > 0 ? maxScrollTop : 0;
-  };
   const textHandler = (e) => {
     e.preventDefault();
     setText(text);
@@ -33,9 +33,13 @@ const ChatBot = () => {
     setMessages(messages);
     setText("");
     //second option
-    scrollToBottom();
+    const scrollHeight = windowChat.current.scrollHeight;
+    const height = windowChat.current.clientHeight;
+    const maxScrollTop = scrollHeight - height;
+    windowChat.current.scrollTop = maxScrollTop > 0 ? maxScrollTop : 0;
     // first option
     // messagesEnd.current.scrollIntoView({ behavior: "smooth" })
+    console.log(chatBot);
   };
   return (
     <div className="chatBot">

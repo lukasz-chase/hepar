@@ -3,26 +3,27 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 //action
 import { loadTrivia } from "../actions/triviaAction";
+//components
+import SmallPage from "../components/SmallPage";
 
 const TriviaPage = () => {
   //state
   const [loadNew, setLoadNew] = useState(false);
+  //dispatch, axios
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(loadTrivia());
   }, [dispatch, loadNew]);
+  //data
   const { trivia } = useSelector((state) => state.trivia);
+  //render
   return (
-    <div className="jokePage">
-      <div className="jokePage-component">
-        <h1>Your Random Food Trivia:</h1>
-
-        <div className="joke">{trivia.text}</div>
-        <div className="another-joke" onClick={() => setLoadNew(!loadNew)}>
-          Another One
-        </div>
-      </div>
-    </div>
+    <SmallPage
+      text={"Your Random Food Trivia:"}
+      item={trivia.text}
+      loadNew={loadNew}
+      setLoadNew={setLoadNew}
+    />
   );
 };
 

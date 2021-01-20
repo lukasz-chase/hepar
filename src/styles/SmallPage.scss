@@ -1,11 +1,11 @@
-.jokePage {
+.smallPage {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   width: 100%;
   margin-top: -5px;
 }
-.jokePage-component {
+.smallPage-component {
   min-height: 40vh;
   width: 60%;
   background-color: #60b5ff67;
@@ -21,7 +21,12 @@
     font-size: 2rem;
     color: white;
   }
-  .another-joke {
+  .item {
+    font-size: 1.5rem;
+    text-align: center;
+    color: black;
+  }
+  .another-item {
     padding: 0.5rem;
     margin-top: 1rem;
     font-size: 1.5rem;
@@ -30,10 +35,5 @@
     &:hover {
       cursor: pointer;
     }
-  }
-  .joke {
-    font-size: 1.5rem;
-    text-align: center;
-    color: black;
   }
 }

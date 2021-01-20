@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 //action
 import { loadJoke } from "../actions/jokeAction";
+//components
+import SmallPage from "../components/SmallPage";
 
 const JokePage = () => {
   //state
@@ -13,16 +15,12 @@ const JokePage = () => {
   }, [dispatch, loadNew]);
   const { joke } = useSelector((state) => state.joke);
   return (
-    <div className="jokePage">
-      <div className="jokePage-component">
-        <h1>Your Random Food Joke:</h1>
-
-        <div className="joke">{joke.text}</div>
-        <div className="another-joke" onClick={() => setLoadNew(!loadNew)}>
-          Another One
-        </div>
-      </div>
-    </div>
+    <SmallPage
+      text={"Your Random Food Joke:"}
+      item={joke.text}
+      loadNew={loadNew}
+      setLoadNew={setLoadNew}
+    />
   );
 };
 

@@ -1,5 +1,5 @@
 .chatBot {
-  position: absolute;
+  position: fixed;
   right: 0;
   bottom: 0;
 }
@@ -13,13 +13,19 @@
   height: 4rem;
   background-color: #80f1fa;
   border-radius: 2rem;
-
   &:hover {
     cursor: pointer;
+  }
+  @media screen and(max-width:575px) {
+    height: 2rem;
+    width: 2rem;
   }
 }
 .svg-icon {
   transform: scale(1.8);
+  @media screen and(max-width:575px) {
+    transform: scale(1);
+  }
 }
 .chatBot-window {
   height: 25rem;
@@ -52,10 +58,16 @@
     overflow-y: auto;
     display: flex;
     flex-direction: column;
+    @media screen and(max-width:575px) {
+      width: 10rem;
+    }
+    @media screen and(max-width:1200px) {
+      width: 15rem;
+    }
   }
   .message-look {
     min-height: fit-content;
-    width: 10rem;
+    width: 13rem;
     word-wrap: break-word;
     font-size: 1rem;
     margin: 0.25rem;
@@ -63,6 +75,12 @@
     border-radius: 1rem;
     span {
       margin: 0.5rem;
+    }
+    @media screen and(max-width:575px) {
+      width: 5rem;
+    }
+    @media screen and(max-width:1200px) {
+      width: 10rem;
     }
   }
 
@@ -79,5 +97,13 @@
     border-radius: 0px 0px 1rem 0rem;
     background-color: #80b3f5;
     border-left: none;
+  }
+  @media screen and(max-width:575px) {
+    height: 15rem;
+    width: 10rem;
+  }
+  @media screen and(max-width:1200px) {
+    height: 20rem;
+    width: 15rem;
   }
 }

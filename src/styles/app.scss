@@ -3,6 +3,9 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "Yusei Magic", sans-serif;
+  @media screen and(max-width:1200px) {
+    font-size: 1rem;
+  }
 }
 .Link {
   text-decoration: none;
@@ -16,6 +19,6 @@
 @import "./mealDetails";
 @import "./searched";
 @import "./recipesPage";
-@import "./jokePage";
+@import "./SmallPage";
 @import "./quickAnswer";
 @import "./chatBot";

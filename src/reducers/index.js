@@ -6,6 +6,7 @@ import recipesReducer from "./recipesReducer";
 import jokeReducer from "./jokeReducer";
 import answerReducer from "./answerReducer";
 import triviaReducer from "./triviaReducer";
+import chatBotReducer from "./chatBotReducer";
 
 const rootReducer = combineReducers({
   meals: mealsReducer,
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   joke: jokeReducer,
   answer: answerReducer,
   trivia: triviaReducer,
+  chatBot: chatBotReducer,
 });
 
 export default rootReducer;

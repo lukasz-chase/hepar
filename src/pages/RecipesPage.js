@@ -11,42 +11,24 @@ const RecipesPage = () => {
   const [sort, setSort] = useState("popularity");
   const [number, setNumber] = useState(10);
   const [diet, setDiet] = useState("");
-  const [cuisine, setCuisine] = useState("");
-  const [intolerances, setIntolernaces] = useState("");
+  // const [cuisine, setCuisine] = useState("");
+  // const [intolerance, setIntolerance] = useState("");
   const dispatch = useDispatch();
   //useEffect
   useEffect(() => {
-    dispatch(loadRecipes(sort, number, diet, cuisine, intolerances));
-  }, [dispatch, sort, number, diet, cuisine, intolerances]);
+    dispatch(loadRecipes(sort, diet, number));
+  }, [dispatch, sort, diet, number]);
   //get data back
   const { recipes } = useSelector((state) => state.recipes);
   //ref
   const sortSelect = useRef(null);
   const dietSelect = useRef(null);
-  const cuisineSelect = useRef(null);
-  const intolerancesSelect = useRef(null);
+  // const cuisineSelect = useRef(null);
+  // const intoleranceSelect = useRef(null);
   //handlers
   const sortHandler = (set, refer) => {
     set(refer.current.options[refer.current.selectedIndex].value);
   };
-  // const sortHandler = () => {
-  //   setSort(sortSelect.current.options[sortSelect.current.selectedIndex].value);
-  // };
-  // const dietHandler = () => {
-  //   setDiet(dietSelect.current.options[dietSelect.current.selectedIndex].value);
-  // };
-  // const cuisineHandler = () => {
-  //   setCuisine(
-  //     cuisineSelect.current.options[cuisineSelect.current.selectedIndex].value
-  //   );
-  // };
-  // const intolerancesHandler = () => {
-  //   setIntolernaces(
-  //     intolerancesSelect.current.options[
-  //       intolerancesSelect.current.selectedIndex
-  //     ].value
-  //   );
-  // };
   return (
     <div className="recipesPage">
       <div className="recipesPage-component">
@@ -92,13 +74,13 @@ const RecipesPage = () => {
                 <option value="Whole30">Whole30</option>
               </select>
             </div>
-            <div className="recipesPage-header-sort">
+            {/* <div className="recipesPage-header-sort">
               <span>Cuisines</span>
               <select
                 name=""
                 id=""
                 ref={cuisineSelect}
-                onChange={() => sortHandler(setCuisine, cuisineSelect)}
+                onChange={() =>sortHandler(setCuisine,cuisineSelect)}
               >
                 <option value="">choose cuisine</option>
                 <option value="African">African</option>
@@ -130,16 +112,14 @@ const RecipesPage = () => {
               </select>
             </div>
             <div className="recipesPage-header-sort">
-              <span>Intolerances</span>
+              <span>Intolerance</span>
               <select
                 name=""
                 id=""
-                ref={intolerancesSelect}
-                onChange={() =>
-                  sortHandler(setIntolernaces, intolerancesSelect)
-                }
+                ref={intoleranceSelect}
+                onChange={() =>sortHandler(setIntolerance,intoleranceSelect)}
               >
-                <option value="">choose intolerances</option>
+                <option value="">choose intolerance</option>
                 <option value="Dairy">Dairy</option>
                 <option value="Egg">Egg</option>
                 <option value="Gluten">Gluten</option>
@@ -153,7 +133,7 @@ const RecipesPage = () => {
                 <option value="Tree Nut">Tree Nut</option>
                 <option value="Wheat">Wheat</option>
               </select>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="recipesPage-items">

@@ -3,17 +3,9 @@ import { recipesURL } from "../api";
 
 //Action Creator
 
-export const loadRecipes = (
-  item,
-  diet,
-  cuisine,
-  intolerances,
-  number
-) => async (dispatch) => {
+export const loadRecipes = (item, diet, number) => async (dispatch) => {
   //FETCH AXIOS
-  const recipesData = await axios.get(
-    recipesURL(item, number, cuisine, intolerances, diet)
-  );
+  const recipesData = await axios.get(recipesURL(item, diet, number));
   dispatch({
     type: "FETCH_RECIPES",
     payload: {

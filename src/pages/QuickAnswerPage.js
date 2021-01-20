@@ -38,6 +38,9 @@ const QuickAnswerPage = () => {
             </button>
           </form> */}
         </div>
+        <div className="answerPage-article">
+          <span>{answer}</span>
+        </div>
       </div>
     </div>
   );
