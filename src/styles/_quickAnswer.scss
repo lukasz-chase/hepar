@@ -29,9 +29,17 @@
       cursor: pointer;
     }
   }
+  p {
+    color: rgba(128, 128, 128, 0.5);
+    text-align: center;
+    font-size: 0.8rem;
+  }
 }
 .answerPage-article {
   display: flex;
   font-size: 1.5rem;
   padding: 2rem 0rem;
+  span {
+    text-align: center;
+  }
 }

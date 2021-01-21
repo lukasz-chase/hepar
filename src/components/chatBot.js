@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { loadChatBot } from "../actions/chatBotAction";
 
 const ChatBot = () => {
+  //state
   const [open, setOpen] = useState(false);
   const [text, setText] = useState("");
   const [messages, setMessages] = useState([
@@ -12,35 +13,31 @@ const ChatBot = () => {
         "sample questions: convert something with 2 cups of butter in grams | find food substitutes by saying - what is substitute for flour",
     },
   ]);
+  //dispatch
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(loadChatBot(text));
-  }, [dispatch, messages, text]);
-  const { chatBot } = useSelector((state) => state.chatBot);
   //ref
-  //second option
-  const windowChat = useRef(null);
-  // first option
-  // const  messagesEnd = useRef(null);
+  const messagesEnd = useRef(null);
   //handlers
   const inputHandler = (e) => {
     setText(e.target.value);
   };
-  const textHandler = (e) => {
+  useEffect(() => {
+    dispatch(loadChatBot(text));
+  }, [dispatch, text]);
+  const chatBot = useSelector((state) => state.chatBot);
+  const messagesHandler = (e) => {
     e.preventDefault();
-    setText(text);
-    messages.push({ who: "you", message: text });
-    setMessages(messages);
     setText("");
-    //second option
-    const scrollHeight = windowChat.current.scrollHeight;
-    const height = windowChat.current.clientHeight;
-    const maxScrollTop = scrollHeight - height;
-    windowChat.current.scrollTop = maxScrollTop > 0 ? maxScrollTop : 0;
-    // first option
-    // messagesEnd.current.scrollIntoView({ behavior: "smooth" })
-    console.log(chatBot);
+    messages.push({ who: "you", message: text });
+    messages.push({
+      who: "ChatBot",
+      message: chatBot.answerText ? chatBot.answerText : "Answer not found",
+    });
+    setMessages(messages);
+    messagesEnd.current.scrollIntoView({ behavior: "smooth" });
   };
+
+  console.log(chatBot);
   return (
     <div className="chatBot">
       {!open && (
@@ -72,7 +69,7 @@ const ChatBot = () => {
               <path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z" />
             </svg>
           </div>
-          <div className="window-chat" ref={windowChat}>
+          <div className="window-chat">
             {messages.map((message, index) => (
               <div className="window-chat-items" key={index}>
                 {index % 2 ? (
@@ -91,13 +88,12 @@ const ChatBot = () => {
                 )}
               </div>
             ))}
-            {/* first option */}
-            {/* <div ref={messagesEnd}></div> */}
+            <div ref={messagesEnd}></div>
           </div>
           <div className="window-input">
             <form action="">
               <input type="text" value={text} onChange={inputHandler} />
-              <button type="submit" onClick={textHandler}>
+              <button type="submit" onClick={messagesHandler}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"

@@ -19,10 +19,12 @@
   }
   .card-image {
     overflow: hidden;
+
     img {
       height: 30vh;
       width: 27vh;
       object-fit: cover;
+      transition: 0.3s ease-in all;
       &:hover {
         transform: scale(1.2);
       }

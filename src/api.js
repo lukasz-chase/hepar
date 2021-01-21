@@ -1,4 +1,6 @@
-const apiKey = "?apiKey=f91e93a03c524f8a94b35fd483426a86";
+// const apiKey = "?apiKey=f91e93a03c524f8a94b35fd483426a86";
+// const apiKey = "?apiKey=d21126a4be7f4731abb8245b3da3a79b";
+const apiKey = "?apiKey=7ac5f5c783e64ad6bbf03a78e8a3568a";
 
 const mainURL = `https://api.spoonacular.com/recipes/complexSearch${apiKey}`;
 export const mealTypeURL = (type) => `${mainURL}&type=${type}`;
