@@ -1,11 +1,23 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { loadChatBot } from "../actions/chatBotAction";
+import { sendMessageToChatBot } from "../actions/chatBotAction";
+
+/*
+  ! so the flow here is:
+  1. We type text, and on each key press we update the text state
+  2. We press the send button or hit enter key
+  3. We dispatch that action to redux and to the API and we add new message to the 
+     chat with our newly asked question
+  4. Our chatBot state in redux store gets updated in chatBotReducer.js
+  5. Component picks it up in UseEffect hook
+  6. Component gets updated by bots new answer
+*/
 
 const ChatBot = () => {
   //state
   const [open, setOpen] = useState(false);
   const [text, setText] = useState("");
+  // const [completeMessage, setCompleteMessage] = useState("");
   const [messages, setMessages] = useState([
     {
       who: "ChatBot",
@@ -13,31 +25,82 @@ const ChatBot = () => {
         "sample questions: convert something with 2 cups of butter in grams | find food substitutes by saying - what is substitute for flour",
     },
   ]);
-  //dispatch
-  const dispatch = useDispatch();
+  //chatBot state
+  const chatBot = useSelector((state) => state.chatBot);
   //ref
   const messagesEnd = useRef(null);
+
+  //dispatch
+  const dispatch = useDispatch();
+
+  // we wait for state update, add answer to chat, clear values and scroll
+  useEffect(() => {
+    if (text) {
+      messages.push({
+        who: "ChatBot",
+        message: chatBot.answerText ? chatBot.answerText : "Answer not found",
+      });
+      setMessages(messages);
+      setText("");
+
+      // ! scroll to element - for now i havent figured out a better way
+      // it woesnt work properly because there is a time offset after using setMessages
+      // hook and them being rendered on the view
+
+      // i think it would have helped if you had messages state but not with string values
+      // but with divs
+      // and after each question and answer you would update the array with new div
+      // like instead of doing messages.push(blabla)
+      // you would do
+      /* 
+        messages.push(
+          <div className="message-look">
+            <span style={{ color: "#C3A3FA" }}>{message.who}</span>:{" "}
+            {message.message}
+          </div>
+        );
+        
+        and later on display just this messages by doing something like
+        <div className="window-chat">
+          <div className="window-chat-items">
+            {messages}
+          </div>
+          <div
+            style={{ float: "left", clear: "both" }}
+            ref={messagesEnd}
+          ></div>
+        </div>
+      */
+
+      // because now you render every message after every state update
+      // thats not good
+      // it will get slower and slower after you hit more messages then 10
+      // if you have like 1k messages then maybe you would notice
+      setTimeout(() => {
+        messagesEnd.current?.scrollIntoView({ behavior: "smooth" });
+      }, 60);
+    }
+    // ! we ignore the eslint rule, because we dont want to update on every state change, just the chatBot
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [chatBot]);
+
   //handlers
   const inputHandler = (e) => {
-    setText(e.target.value);
+    // enter key press sens message
+    if (e.keyCode === 13) {
+      messagesHandler(e);
+    } else {
+      setText(e.target.value);
+    }
   };
-  useEffect(() => {
-    dispatch(loadChatBot(text));
-  }, [dispatch, text]);
-  const chatBot = useSelector((state) => state.chatBot);
+  // ! here we just send the message and save our asked question
   const messagesHandler = (e) => {
     e.preventDefault();
-    setText("");
+    dispatch(sendMessageToChatBot(text));
     messages.push({ who: "you", message: text });
-    messages.push({
-      who: "ChatBot",
-      message: chatBot.answerText ? chatBot.answerText : "Answer not found",
-    });
     setMessages(messages);
-    messagesEnd.current.scrollIntoView({ behavior: "smooth" });
   };
 
-  console.log(chatBot);
   return (
     <div className="chatBot">
       {!open && (
@@ -71,6 +134,8 @@ const ChatBot = () => {
           </div>
           <div className="window-chat">
             {messages.map((message, index) => (
+              // ! this is one item - this gets rendered for all chat messages, so the class name
+              // ! should be window-chat-item
               <div className="window-chat-items" key={index}>
                 {index % 2 ? (
                   <div className="message-look">
@@ -88,7 +153,10 @@ const ChatBot = () => {
                 )}
               </div>
             ))}
-            <div ref={messagesEnd}></div>
+            <div
+              style={{ float: "left", clear: "both" }}
+              ref={messagesEnd}
+            ></div>
           </div>
           <div className="window-input">
             <form action="">
