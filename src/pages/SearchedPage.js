@@ -8,7 +8,7 @@ import { fetchSearch } from "../actions/searchAction";
 
 const SearchedPage = () => {
   //useState
-  const [number, setNumber] = useState(10);
+  const [number, setNumber] = useState("10");
   //getting data
   const { searched } = useSelector((state) => state.searched);
   //ref
@@ -53,7 +53,7 @@ const SearchedPage = () => {
                   <div className="items-type">
                     {type.results.map((item, index) => (
                       <Card
-                        key={index + item.id}
+                        key={index + item.id ? item.id : item.name}
                         id={item.id}
                         title={item.name}
                         img={item.image}

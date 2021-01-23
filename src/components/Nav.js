@@ -18,7 +18,7 @@ const Nav = () => {
   };
   const submitSearch = (e) => {
     e.preventDefault();
-    dispatch(fetchSearch(textInput));
+    dispatch(fetchSearch(textInput, 10));
     SetTextInput("");
     history.push("/search");
   };

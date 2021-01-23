@@ -23,11 +23,6 @@ const Home = () => {
                 Food trivia
               </Link>
             </li>
-            <li>
-              <Link to="/answer" className="Link">
-                Quick answer
-              </Link>
-            </li>
           </ul>
         </div>
         <div className="right-side">

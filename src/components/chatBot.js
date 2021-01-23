@@ -17,7 +17,6 @@ const ChatBot = () => {
   //state
   const [open, setOpen] = useState(false);
   const [text, setText] = useState("");
-  // const [completeMessage, setCompleteMessage] = useState("");
   const [messages, setMessages] = useState([
     {
       who: "ChatBot",
@@ -29,10 +28,8 @@ const ChatBot = () => {
   const chatBot = useSelector((state) => state.chatBot);
   //ref
   const messagesEnd = useRef(null);
-
   //dispatch
   const dispatch = useDispatch();
-
   // we wait for state update, add answer to chat, clear values and scroll
   useEffect(() => {
     if (text) {
@@ -42,40 +39,6 @@ const ChatBot = () => {
       });
       setMessages(messages);
       setText("");
-
-      // ! scroll to element - for now i havent figured out a better way
-      // it woesnt work properly because there is a time offset after using setMessages
-      // hook and them being rendered on the view
-
-      // i think it would have helped if you had messages state but not with string values
-      // but with divs
-      // and after each question and answer you would update the array with new div
-      // like instead of doing messages.push(blabla)
-      // you would do
-      /* 
-        messages.push(
-          <div className="message-look">
-            <span style={{ color: "#C3A3FA" }}>{message.who}</span>:{" "}
-            {message.message}
-          </div>
-        );
-        
-        and later on display just this messages by doing something like
-        <div className="window-chat">
-          <div className="window-chat-items">
-            {messages}
-          </div>
-          <div
-            style={{ float: "left", clear: "both" }}
-            ref={messagesEnd}
-          ></div>
-        </div>
-      */
-
-      // because now you render every message after every state update
-      // thats not good
-      // it will get slower and slower after you hit more messages then 10
-      // if you have like 1k messages then maybe you would notice
       setTimeout(() => {
         messagesEnd.current?.scrollIntoView({ behavior: "smooth" });
       }, 60);
@@ -95,10 +58,14 @@ const ChatBot = () => {
   };
   // ! here we just send the message and save our asked question
   const messagesHandler = (e) => {
-    e.preventDefault();
-    dispatch(sendMessageToChatBot(text));
-    messages.push({ who: "you", message: text });
-    setMessages(messages);
+    if (text !== "") {
+      e.preventDefault();
+      dispatch(sendMessageToChatBot(text));
+      messages.push({ who: "you", message: text });
+      setMessages(messages);
+    } else {
+      e.preventDefault();
+    }
   };
 
   return (
@@ -134,9 +101,7 @@ const ChatBot = () => {
           </div>
           <div className="window-chat">
             {messages.map((message, index) => (
-              // ! this is one item - this gets rendered for all chat messages, so the class name
-              // ! should be window-chat-item
-              <div className="window-chat-items" key={index}>
+              <div className="window-chat-item" key={index}>
                 {index % 2 ? (
                   <div className="message-look">
                     <span style={{ color: "#C3A3FA" }}>{message.who}</span>:{" "}

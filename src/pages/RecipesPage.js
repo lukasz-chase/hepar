@@ -11,20 +11,20 @@ const RecipesPage = () => {
   const [sort, setSort] = useState("popularity");
   const [number, setNumber] = useState(10);
   const [diet, setDiet] = useState("");
-  // const [cuisine, setCuisine] = useState("");
-  // const [intolerance, setIntolerance] = useState("");
+  const [cuisine, setCuisine] = useState("");
+  const [intolerance, setIntolerance] = useState("");
   const dispatch = useDispatch();
   //useEffect
   useEffect(() => {
-    dispatch(loadRecipes(sort, diet, number));
-  }, [dispatch, sort, diet, number]);
+    dispatch(loadRecipes(sort, diet, intolerance, cuisine, number));
+  }, [dispatch, sort, diet, intolerance, cuisine, number]);
   //get data back
   const { recipes } = useSelector((state) => state.recipes);
   //ref
   const sortSelect = useRef(null);
   const dietSelect = useRef(null);
-  // const cuisineSelect = useRef(null);
-  // const intoleranceSelect = useRef(null);
+  const cuisineSelect = useRef(null);
+  const intoleranceSelect = useRef(null);
   //handlers
   const sortHandler = (set, refer) => {
     set(refer.current.options[refer.current.selectedIndex].value);
@@ -74,13 +74,13 @@ const RecipesPage = () => {
                 <option value="Whole30">Whole30</option>
               </select>
             </div>
-            {/* <div className="recipesPage-header-sort">
+            <div className="recipesPage-header-sort">
               <span>Cuisines</span>
               <select
                 name=""
                 id=""
                 ref={cuisineSelect}
-                onChange={() =>sortHandler(setCuisine,cuisineSelect)}
+                onChange={() => sortHandler(setCuisine, cuisineSelect)}
               >
                 <option value="">choose cuisine</option>
                 <option value="African">African</option>
@@ -111,13 +111,14 @@ const RecipesPage = () => {
                 <option value="Vietnamese">Vietnamese</option>
               </select>
             </div>
+
             <div className="recipesPage-header-sort">
               <span>Intolerance</span>
               <select
                 name=""
                 id=""
                 ref={intoleranceSelect}
-                onChange={() =>sortHandler(setIntolerance,intoleranceSelect)}
+                onChange={() => sortHandler(setIntolerance, intoleranceSelect)}
               >
                 <option value="">choose intolerance</option>
                 <option value="Dairy">Dairy</option>
@@ -133,7 +134,7 @@ const RecipesPage = () => {
                 <option value="Tree Nut">Tree Nut</option>
                 <option value="Wheat">Wheat</option>
               </select>
-            </div> */}
+            </div>
           </div>
         </div>
         <div className="recipesPage-items">
