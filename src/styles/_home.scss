@@ -9,14 +9,13 @@
   min-height: 70vh;
   width: 60%;
   display: flex;
-  box-shadow: 6px 6px 20px rgb(82, 81, 81);
   .left-side {
     width: 30%;
     font-size: 1.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(to right top, #65dfc9, #6cdbeb);
+    background: #5c6bc0;
 
     ul {
       li {
@@ -31,7 +30,7 @@
     }
   }
   .right-side {
-    background-color: #60b5ff67;
+    background-color: #9fa8da;
     width: 70%;
     .info {
       display: flex;
