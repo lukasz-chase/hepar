@@ -1,8 +1,10 @@
+see it live on: https://hepar.vercel.app/
+
 To run this app on your computer follow these steps:
 
 1.run in your cmd -  git clone https://github.com/luki752/hepar.git
 
-2.when its cloned run in your command - npm install
+2.when its cloned run in your cmd - npm install
 
 3.after everything is installed you can run the project - npm start
 
@@ -22,4 +24,4 @@ In the right bottom corner theres a chat incon if you click it you can communica
 
 if app stops running its probably because api's request limits, what you need to do if that happens is - go to api.js in src files, comment active apiKey variable and uncomment another one, and you are good to go!
 
-see it live on: https://hepar.vercel.app/
+
