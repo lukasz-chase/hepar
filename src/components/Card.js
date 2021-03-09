@@ -5,16 +5,20 @@ const Card = ({ id, title, img, link }) => {
   return (
     <>
       {img ? (
-        <Link className="Link" to={`/recipe/${id}`}>
-          <div className="card">
+        <div className="card">
+          <Link
+            className="Link"
+            to={`/recipe/${id}`}
+            onClick={() => window.scrollTo(0, 0)}
+          >
             <div className="card-image">
               {img ? <img src={img} alt="" /> : ""}
             </div>
             <div className="card-info">
               <span> {title}</span>
             </div>
-          </div>
-        </Link>
+          </Link>
+        </div>
       ) : (
         <a target="_blank" href={link} rel="noreferrer" className="card-link">
           {title}

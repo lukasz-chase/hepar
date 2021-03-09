@@ -8,7 +8,6 @@ import { loadRecipe } from "../actions/recipeAction";
 //components
 import Ingredient from "../components/Ingredient";
 import Step from "../components/step";
-import Card from "../components/Card";
 
 const MealDetails = () => {
   //get the current location
@@ -22,7 +21,6 @@ const MealDetails = () => {
   }, [dispatch, pathId]);
   //get data back
   const { recipe, isLoading, similar } = useSelector((state) => state.recipe);
-  console.log(recipe);
   //ref
   const fullNutrition = useRef(null);
   //handlers
@@ -86,7 +84,7 @@ const MealDetails = () => {
               </div>
             </div>
             <div className="ingredients">
-              <h2>Ingredients</h2>
+              <h2>Ingredients:</h2>
               {recipe.extendedIngredients.map((ingredient, index) => (
                 <Ingredient
                   ingredient={ingredient}
@@ -97,7 +95,7 @@ const MealDetails = () => {
               ))}
             </div>
             <div className="steps">
-              <h2>Directions</h2>
+              <h2>Directions:</h2>
               {recipe.analyzedInstructions[0].steps.map((step) => (
                 <Step key={step.number} step={step} />
               ))}
@@ -140,12 +138,14 @@ const MealDetails = () => {
             <h2 className="similar-header">Similar Recipes</h2>
             <div className="mealDetails-similar">
               {similar.map((recipe) => (
-                <Card
+                <a
+                  href={recipe.sourceUrl}
+                  target="_blank"
+                  rel="noreferrer"
                   key={recipe.id}
-                  id={recipe.id}
-                  title={recipe.title}
-                  link={recipe.sourceUrl}
-                />
+                >
+                  {recipe.title}
+                </a>
               ))}
             </div>
           </div>

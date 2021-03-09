@@ -4,6 +4,9 @@
   justify-content: space-evenly;
   width: 100%;
   margin-top: -5px;
+  @media screen and (max-width: 1000px) {
+    margin-top: -19px;
+  }
 }
 .searched-component {
   min-height: 70vh;
@@ -12,6 +15,9 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
+  @media screen and (max-width: 1000px) {
+    width: 100%;
+  }
 }
 .results-amount {
   font-size: 1.5rem;

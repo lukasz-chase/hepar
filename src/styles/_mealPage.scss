@@ -5,6 +5,11 @@
   h1 {
     padding: 0rem 1rem;
   }
+  @media screen and (max-width: 1000px) {
+    width: 100%;
+    margin-top: -12px;
+    text-align: center;
+  }
 }
 .mealPage-container {
   width: 100%;
